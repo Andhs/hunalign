@@ -41,9 +41,10 @@ def main() :
 		# hulines[int(hole[0][0]):int(hole[1][0])]
 		outputlines = map( lambda hole:
 #		    hole[0][2] + "\t" +
-                " ".join(hulines[int(hole[0][0]):int(hole[1][0])]).rstrip() 
-                + "\t" + 
-                " ".join(enlines[int(hole[0][1]):int(hole[1][1])]) if (float(hole[0][2]) > 0.2) else ""
+            " ".join(hulines[int(hole[0][0]):int(hole[1][0])]).rstrip() 
+            + "\t" + 
+            " ".join(enlines[int(hole[0][1]):int(hole[1][1])]) if (float(hole[0][2]) > 0.2) else ""
+            , 
 		    pairwise(ladder)
 		)
 		
