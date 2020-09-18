@@ -49,8 +49,8 @@ def main() :
 		)
 		
 		for l in outputlines:
-		    if i:
-                print l
+		    if l:
+				print l
 	else:
 		print 'usage: ladder2text.py <aligned.ladder> <hu.raw> <en.raw> > aligned.txt'
 		sys.exit(-1)
