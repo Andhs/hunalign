@@ -48,8 +48,8 @@ def main() :
 		    pairwise(ladder)
 		)
 		
-		for l in outputlines :
-            if i:
+		for l in outputlines:
+		    if i:
                 print l
 	else:
 		print 'usage: ladder2text.py <aligned.ladder> <hu.raw> <en.raw> > aligned.txt'
