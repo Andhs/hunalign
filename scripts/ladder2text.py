@@ -40,11 +40,10 @@ def main() :
 		# the following segment returns an interval of sentences corresponding to a hole:
 		# hulines[int(hole[0][0]):int(hole[1][0])]
 		outputlines = map( lambda hole:
-            if hole[0][2] > 0.2:
 #		    hole[0][2] + "\t" +
                 " ".join(hulines[int(hole[0][0]):int(hole[1][0])]).rstrip() 
                 + "\t" + 
-                " ".join(enlines[int(hole[0][1]):int(hole[1][1])])
+                " ".join(enlines[int(hole[0][1]):int(hole[1][1])]) if (hole[0][2] > 0.2) else None
 		,
 		    pairwise(ladder)
 		)
