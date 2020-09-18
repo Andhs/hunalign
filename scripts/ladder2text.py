@@ -43,12 +43,13 @@ def main() :
 #		    hole[0][2] + "\t" +
                 " ".join(hulines[int(hole[0][0]):int(hole[1][0])]).rstrip() 
                 + "\t" + 
-                " ".join(enlines[int(hole[0][1]):int(hole[1][1])]) if (float(hole[0][2]) > 0.2) else pass
+                " ".join(enlines[int(hole[0][1]):int(hole[1][1])]) if (float(hole[0][2]) > 0.2) else ""
 		    pairwise(ladder)
 		)
 		
 		for l in outputlines :
-		    print l
+            if i:
+                print l
 	else:
 		print 'usage: ladder2text.py <aligned.ladder> <hu.raw> <en.raw> > aligned.txt'
 		sys.exit(-1)
