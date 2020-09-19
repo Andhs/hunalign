@@ -41,16 +41,18 @@ def main() :
 		# hulines[int(hole[0][0]):int(hole[1][0])]
 		outputlines = map( lambda hole:
 #		    hole[0][2] + "\t" +
-            " ".join(hulines[int(hole[0][0]):int(hole[1][0])]).rstrip() 
+            " ".join(hulines[int(hole[0][0]):int(hole[1][0])]).replace("\r", "")
             + "\t" + 
             "   ".join(enlines[int(hole[0][1]):int(hole[1][1])]).replace("\r", "") if (float(hole[0][2]) > 0.2) else ""
             , 
 		    pairwise(ladder)
 		)
 
-		for l in outputlines:
+		for l in outputlines[:-1]:
 		    if l:
 				print l
+		if outputlines[:-1]:
+			print outputlines[:-1],
 	else:
 		print 'usage: ladder2text.py <aligned.ladder> <hu.raw> <en.raw> > aligned.txt'
 		sys.exit(-1)
