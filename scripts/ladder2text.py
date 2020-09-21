@@ -43,11 +43,11 @@ def main() :
 #		    hole[0][2] + "\t" +
             " ".join(hulines[int(hole[0][0]):int(hole[1][0])]).replace("\r", "")
             + "\t" + 
-            "   ".join(enlines[int(hole[0][1]):int(hole[1][1])]).replace("\r", "") if (float(hole[0][2]) > 0.2) else ""
+            "   ".join(enlines[int(hole[0][1]):int(hole[1][1])]).replace("\r", "") if (float(hole[0][2]) > 0.2) else None
             , 
 		    pairwise(ladder)
 		)
-		print(outputlines)
+
 		for l in outputlines:
 		    if l:
 				print l
