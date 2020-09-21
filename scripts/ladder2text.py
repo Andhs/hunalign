@@ -33,7 +33,7 @@ def main() :
 		    assert len(a)==3
 		    return ( int(a[0]), int(a[1]), a[2] ) # The score we leave as a string, to avoid small diffs caused by different numerical representations.
 		ladder = map( parseLadderLine, ladderlines )
-
+		print pairwise(ladder)
 		# the next map() does all the work, so here are some comments...
 		# the map() iterates over the holes of the ladder. 
 		# a hole is supposed to be two consecutive items in the array holding the lines of the ladder. /an array of holes is returned by pairwise(ladder)/
@@ -41,7 +41,7 @@ def main() :
 		# hulines[int(hole[0][0]):int(hole[1][0])]
 		outputlines = map( lambda hole:
 #		    hole[0][2] + "\t" +
-            " ".join(hulines[int(hole[0][0]):int(hole[1][0])]).replace("\r", "")
+            "   ".join(hulines[int(hole[0][0]):int(hole[1][0])]).replace("\r", "")
             + "\t" + 
             "   ".join(enlines[int(hole[0][1]):int(hole[1][1])]).replace("\r", "") if (float(hole[0][2]) > 0.2) else ""
             , 
