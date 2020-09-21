@@ -48,11 +48,10 @@ def main() :
 		    pairwise(ladder)
 		)
 
-		for l in outputlines[:-1]:
+		for l in outputlines:
 		    if l:
 				print l
-		if outputlines[:-1]:
-			print outputlines[:-1],
+
 	else:
 		print 'usage: ladder2text.py <aligned.ladder> <hu.raw> <en.raw> > aligned.txt'
 		sys.exit(-1)
