@@ -47,7 +47,7 @@ def main() :
             , 
 		    pairwise(ladder)
 		)
-
+		print(outputlines)
 		for l in outputlines:
 		    if l:
 				print l
