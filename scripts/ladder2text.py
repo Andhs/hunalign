@@ -33,6 +33,8 @@ def main() :
 		    assert len(a)==3
 		    return ( int(a[0]), int(a[1]), a[2] ) # The score we leave as a string, to avoid small diffs caused by different numerical representations.
 		ladder = map( parseLadderLine, ladderlines )
+		# Added a fictional item to allow counting hole from the last aligned line after pairwise
+		ladder.append((ladder[-1][0] + 10, ladder[-1][1] + 10, "0"))
 
 		# the next map() does all the work, so here are some comments...
 		# the map() iterates over the holes of the ladder. 
