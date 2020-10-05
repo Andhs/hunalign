@@ -51,7 +51,7 @@ def main() :
 		)
 
 		for l in outputlines:
-			if l != "\t":
+			if l and l != "\t":
 				print l
 
 	else:
