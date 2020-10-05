@@ -51,7 +51,7 @@ def main() :
 		)
 
 		for l in outputlines:
-			if l:
+			if l != " ||| ":
 				print l
 
 	else:
