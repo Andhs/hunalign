@@ -24,7 +24,8 @@ The second and third columns are the chunks corresponding to each other.
 " ~~~ " is the sentence delimiter inside chunks.
 '''
 def main() :
-	if len(sys.argv) == 4:
+#	if len(sys.argv) == 4:
+	if len(sys.argv) == 3:
 		ladderlines = readfile(sys.argv[1])
 		hulines = readfile(sys.argv[2])
 		enlines = readfile(sys.argv[3])
@@ -50,12 +51,36 @@ def main() :
 		    pairwise(ladder)
 		)
 
+		rejectedlines = map( lambda hole:
+#		    hole[0][2] + "\t" +
+            "   ".join(hulines[int(hole[0][0]):int(hole[1][0])]).replace("\r", "")
+            + "\t" + 
+            "   ".join(enlines[int(hole[0][1]):int(hole[1][1])]).replace("\r", "") if (float(hole[0][2]) <= 0.2) else ""
+            , 
+		    pairwise(ladder)
+		)
+
+
+#		for l in outputlines:
+#			if l and l != "\t":
+#				print l
+
+		accepted = open("/content/aligned.txt", "w", encoding='utf-8-sig')
 		for l in outputlines:
 			if l and l != "\t":
-				print l
+				accepted.write(l)
+		accepted.close()
+
+
+		rejected = open("/content/hun_rejected.txt", "w", encoding='utf-8-sig')
+		for l in rejectedlines:
+			if l and l != "\t":
+				rejected.write(l)
+		rejected.close()
 
 	else:
-		print 'usage: ladder2text.py <aligned.ladder> <hu.raw> <en.raw> > aligned.txt'
+#		print 'usage: ladder2text.py <aligned.ladder> <hu.raw> <en.raw> > aligned.txt'
+		print 'usage: ladder2text.py <aligned.ladder> <hu.raw> <en.raw>'
 		sys.exit(-1)
 
 
