@@ -24,8 +24,7 @@ The second and third columns are the chunks corresponding to each other.
 " ~~~ " is the sentence delimiter inside chunks.
 '''
 def main() :
-#	if len(sys.argv) == 4:
-	if len(sys.argv) == 3:
+	if len(sys.argv) == 4:
 		ladderlines = readfile(sys.argv[1])
 		hulines = readfile(sys.argv[2])
 		enlines = readfile(sys.argv[3])
@@ -80,7 +79,6 @@ def main() :
 
 	else:
 #		print 'usage: ladder2text.py <aligned.ladder> <hu.raw> <en.raw> > aligned.txt'
-		print len(sys.argv)
 		print 'usage: ladder2text.py <aligned.ladder> <hu.raw> <en.raw>'
 		sys.exit(-1)
 
