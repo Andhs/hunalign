@@ -68,14 +68,14 @@ def main() :
 		accepted = io.open("/content/aligned.txt", "w", encoding='utf-8-sig')
 		for l in outputlines:
 			if l and l != "\t":
-				accepted.write(l)
+				accepted.write(u'{}\n'.format(l))
 		accepted.close()
 
 
 		rejected = io.open("/content/hun_rejected.txt", "w", encoding='utf-8-sig')
 		for l in rejectedlines:
 			if l and l != "\t":
-				rejected.write(l)
+				rejected.write(u'{}\n'.format(l))
 		rejected.close()
 
 	else:
