@@ -1,6 +1,7 @@
 #!/usr/bin/python
 import sys
 import itertools
+import io
 
 '''file -> array holding the lines of the file'''
 def readfile(name):
@@ -64,14 +65,14 @@ def main() :
 #			if l and l != "\t":
 #				print l
 
-		accepted = open("/content/aligned.txt", "w", encoding='utf-8-sig')
+		accepted = io.open("/content/aligned.txt", "w", encoding='utf-8-sig')
 		for l in outputlines:
 			if l and l != "\t":
 				accepted.write(l)
 		accepted.close()
 
 
-		rejected = open("/content/hun_rejected.txt", "w", encoding='utf-8-sig')
+		rejected = io.open("/content/hun_rejected.txt", "w", encoding='utf-8-sig')
 		for l in rejectedlines:
 			if l and l != "\t":
 				rejected.write(l)
