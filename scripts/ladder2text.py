@@ -80,6 +80,7 @@ def main() :
 
 	else:
 #		print 'usage: ladder2text.py <aligned.ladder> <hu.raw> <en.raw> > aligned.txt'
+		print len(sys.argv)
 		print 'usage: ladder2text.py <aligned.ladder> <hu.raw> <en.raw>'
 		sys.exit(-1)
 
