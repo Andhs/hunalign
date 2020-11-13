@@ -55,28 +55,20 @@ def main() :
 #		    hole[0][2] + "\t" +
             "   ".join(hulines[int(hole[0][0]):int(hole[1][0])]).replace("\r", "")
             + "\t" + 
-            "   ".join(enlines[int(hole[0][1]):int(hole[1][1])]).replace("\r", "") if (float(hole[0][2]) <= 0.2) else ""
+            "   ".join(enlines[int(hole[0][1]):int(hole[1][1])]).replace("\r", "") + "\t" + hole[0][2] if (float(hole[0][2]) <= 0.2) else ""
             , 
 		    pairwise(ladder)
 		)
 
 
-#		for l in outputlines:
-#			if l and l != "\t":
-#				print l
-
-		accepted = io.open("/content/aligned.txt", "w", encoding='utf-8-sig')
 		for l in outputlines:
 			if l and l != "\t":
-#				accepted.write(u'{}\n'.format(l))
-				accepted.write(l.decode('utf-8-sig'))
-		accepted.close()
-
+				print l
 
 		rejected = io.open("/content/hun_rejected.txt", "w", encoding='utf-8-sig')
 		for l in rejectedlines:
 			if l and l != "\t":
-				accepted.write(l.decode('utf-8-sig'))
+				rejected.write(l.decode('utf-8-sig') + "\n")
 		rejected.close()
 
 	else:
