@@ -169,7 +169,7 @@ def writeSubcorpora(chain, outputFilename, huLangName, enLangName, huLines, enLi
 
         enFilename = baseFilename + "." + enLangName
         enFile = file( enFilename, "w" )
-        enFile.write(enSubCorpus.rstrip("\n"))
+        enFile.write(enSubCorpus)
         enFile.close()
 
         stdout += ( huFilename +"\t"+ enFilename +"\t"+ baseFilename+".align" + "\n" )
