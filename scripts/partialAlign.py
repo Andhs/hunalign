@@ -151,6 +151,7 @@ def strInterval( corpus, start, end ) :
     return "\n".join(corpus[start:end]) + "\n"
 
 def writeSubcorpora(chain, outputFilename, huLangName, enLangName, huLines, enLines) :
+    file_numbers = file(outputFilename + ".numbers", "w")
     stdout = ""
     lastPos = (0,0)
     ind = 1
@@ -171,10 +172,12 @@ def writeSubcorpora(chain, outputFilename, huLangName, enLangName, huLines, enLi
         enFile.write(enSubCorpus)
         enFile.close()
 
-        stdout += ( huFilename +"\t"+ enFilename +"\t"+ baseFilename+".align" +"\n" )
+        stdout += ( huFilename +"\t"+ enFilename +"\t"+ baseFilename+".align" + "\n" )
+        file_numbers.write(str(pos[0] - lastPos[0] + 1) + "\n")
 
         lastPos = pos
         ind += 1
+    file_numbers.close()
     return stdout
 
 def partialAlignWithIO(huFilename, enFilename, outputFilename, huLangName, enLangName, maximalChunkSize) :
