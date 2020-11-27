@@ -10,7 +10,7 @@ def collectAlign(batchFile):
     numFile = open(line.split()[0][:-5] + ".numbers")
     while line:
         curFile = open(line.split()[2], "r")
-        for aline in curFile[:-1]
+        for aline in curFile[:-1]:
             ladder += str(int(aline.split()[0]) + num_lines) + "\t" + str(int(aline.split()[1]) + num_lines) + "\t" + aline.split()[2] + "\n"
         curFile.close()
         line_from_numFile = numFile.readline()
