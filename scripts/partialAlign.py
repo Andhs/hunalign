@@ -173,7 +173,7 @@ def writeSubcorpora(chain, outputFilename, huLangName, enLangName, huLines, enLi
         enFile.close()
 
         stdout += ( huFilename +"\t"+ enFilename +"\t"+ baseFilename+".align" + "\n" )
-        file_numbers.write(str(pos[0] - lastPos[0] + 1) + "\n")
+        file_numbers.write(str(pos[0] - lastPos[0]) + "\n")
 
         lastPos = pos
         ind += 1
